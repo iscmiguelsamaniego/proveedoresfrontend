@@ -20,8 +20,7 @@ export class ProveedoresService {
   constructor(private _http: HttpClient) { }
 
   public createProveedor(paramNombre: any, paramRazonsocial: any, paramDireccion: any): Observable<any> {
-    console.log(paramNombre +" "+paramRazonsocial+" "+paramDireccion);
-
+ 
     return this._http.post<any[]>(
       this.createProveedorUrl,
       {
@@ -43,6 +42,7 @@ export class ProveedoresService {
   }
 
   public updateProveedor(id: any, paramNombre: any, paramRazonsocial: any, paramDireccion: any): Observable<any> {
+
     return this._http.put<CatProveedores[]>(
       this.updateProveedorUrl, { 
         id: id,

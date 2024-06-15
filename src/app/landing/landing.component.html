@@ -19,7 +19,7 @@
                     <img src="assets/img/gapsi_logo.jpeg" alt="">        
                     <br />
                     <br />
-                    <h2>Bienvenido candidato</h2>
+                    <h2 *ngIf='mensagealusuario'>{{mensagealusuario}}</h2>
                     <br />
                     <br />
                 <button class="btn btn-primary" (click)="goToPage('proveedores')">Continuar</button>
@@ -27,4 +27,6 @@
             </div>
         </section>
     </main>
+<br/>
+    <div *ngIf='versiondelsistema' class="text-center">{{versiondelsistema}}</div>    
 </div>

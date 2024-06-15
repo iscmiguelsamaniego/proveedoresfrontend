@@ -1,94 +1,119 @@
-<app-sidebar/>
+<app-sidebar />
 <main id="main" class="main">
-    <div class="pagetitle">
-      <h1>Proveedores</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
-          <li class="breadcrumb-item">Proveedores</li>
-          <li class="breadcrumb-item active">Administracion de Proveedores</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
-    <section class="section">
-      <div class="row">
-        <div class="col-lg-12">       
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Formulario de registro</h5>
-              <!-- Multi Columns Form -->
-              <form [formGroup]="proveedoresForm" novalidate class="row g-3">
-                <div class="col-md-6">
-                  <label for="nombre" class="form-label">Nombre</label>
-                  <input type="text" class="form-control" formControlName="nombre" autocomplete="off" maxlength="20" placeholder="Ingrese un nombre">
-                </div>
-                <div class="col-md-6">
-                  <label for="razonsocial" class="form-label">Razón Social</label>
-                  <input type="text" class="form-control" formControlName="razonsocial" autocomplete="off" maxlength="40" placeholder="Ingrese una razón social">
-                </div>
-                <div class="col-md-6">
-                  <label for="direccion" class="form-label">Dirección</label>
-                  <input type="text" class="form-control" formControlName="direccion" autocomplete="off" maxlength="50" placeholder="Ingrese una dirección">
+  <div class="pagetitle">
+    <h1>Proveedores</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+        <li class="breadcrumb-item">Proveedores</li>
+        <li class="breadcrumb-item active">Administracion de Proveedores</li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Formulario de registro</h5>
+            <!-- Multi Columns Form -->
+            <form [formGroup]="proveedoresForm" novalidate class="row g-3">
+              <div class="col-md-6">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" formControlName="nombre" autocomplete="off" maxlength="20"
+                  placeholder="Ingrese un nombre">
               </div>
-                              
-                
-                <div class="text-end">                  
-                  <button  class="btn btn-primary" (click)="saveData(); proveedoresForm.reset()">Guardar</button>                  
-                </div>
-              </form><!-- End Multi Columns Form -->
-            </div>
+              <div class="col-md-6">
+                <label for="razonsocial" class="form-label">Razón Social</label>
+                <input type="text" class="form-control" formControlName="razonsocial" autocomplete="off" maxlength="40"
+                  placeholder="Ingrese una razón social">
+              </div>
+              <div class="col-md-6">
+                <label for="direccion" class="form-label">Dirección</label>
+                <input type="text" class="form-control" formControlName="direccion" autocomplete="off" maxlength="50"
+                  placeholder="Ingrese una dirección">
+              </div>
+
+              <div class="form-group">
+                <div class="alert alert-success" *ngIf='createProveedorResult' (click)="clearMessages()">
+                  {{createProveedorResult}} (Clic aqui para cerrar este mensaje)</div>
+              </div>
+
+              <div class="text-end">
+                <button class="btn btn-primary" [disabled]="proveedoresForm.invalid"
+                  (click)="saveData(); proveedoresForm.reset()" *ngIf='saveBtn'>Guardar</button>
+
+                <button *ngIf='updateBtn' class="btn btn-primary pull-right" [disabled]="proveedoresForm.invalid"
+                  (click)="updateProveedor()"
+                  style='margin-right:16px'>Actualizar</button>
+                  
+                <button *ngIf='cancelEditBtn' class="btn btn-primary pull-left"
+                  (click)="cancelUpdate(); proveedoresForm.reset(); clearMessages()">Cancelar
+                  Edición</button>
+              </div>
+
+            </form><!-- End Multi Columns Form -->     
+
           </div>
-        </div>     
-      </div>
-    
-      <div class="row">
-        <div class="col-lg-12">
-
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Registros</h5>              
-              <!-- Table -->
-              <div class="custom-table">
-                <div class="d-flex mb-4">
-                    <input type="text" class="custom-search form-control" name="search" id="search"
-                        placeholder="Buscar registro..." required>
-                </div>
-                <table class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th class="text-center">Id</th>
-                            <th class="text-center">Nombre</th>
-                            <th class="text-center">Razón Social</th>
-                            <th class="text-center">Dirección</th>                                                        
-                            <th class="text-center">Acciones</th>
-                    </thead>
-                    <tbody class="tableC">
-                        <tr *ngFor="let values of listOfProveedores">
-                            <td>{{values.id}}</td>
-                            <td>{{values.nombre}}</td>
-                            <td>{{values.razonsocial}}</td>
-                            <td>{{values.direccion}}</td>
-                                                                          
-                            <td class="text-center">
-                                <button class="btn btn-xs" type="button" value="editRecord" title="Editar Registro">
-                                    <span class="bi bi-pencil" aria-hidden="true"></span>                                    
-                                </button>&nbsp;&nbsp;
-                                <button class="btn btn-xs" type="button" value="deleteRecord" title="Eiminar Registro">
-                                    <span class="bi bi-trash3" aria-hidden="true"></span>
-                                </button>&nbsp;&nbsp;                                
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-              <!-- End Table -->
-
-            </div>
-          </div>
-
         </div>
       </div>
+    </div>
 
-    </section>
-  
-  </main><!-- End #main -->
+    <div class="row">
+      <div class="col-lg-12">
+
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Registros</h5>
+            <!-- Table -->
+            <div class="custom-table">
+              <div class="d-flex mb-4">
+                <input type="text" class="custom-search form-control" name="search" id="search"
+                  placeholder="Buscar registro..." required>
+              </div>
+              <table class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th class="text-center">Id</th>
+                    <th class="text-center">Nombre</th>
+                    <th class="text-center">Razón Social</th>
+                    <th class="text-center">Dirección</th>
+                    <th class="text-center">Acciones</th>
+                </thead>
+                <tbody class="tableC">
+                  <tr *ngFor="let values of listOfProveedores">
+                    <td>{{values.id}}</td>
+                    <td>{{values.nombre}}</td>
+                    <td>{{values.razonsocial}}</td>
+                    <td>{{values.direccion}}</td>
+
+                    <td class="text-center">
+                      <button class="btn btn-xs" type="button" value="editRecord" title="Editar Registro"
+                        (click)="prefillForUpdate(values);">
+                        <span class="material-symbols-outlined">
+                          edit
+                        </span>
+                      </button>                      
+                      <button class="btn btn-xs" value="deleteRecord" title="Eiminar Registro"
+                        (click)="deleteProveedor(values.id);">
+                        <span class="material-symbols-outlined">
+                          delete
+                        </span>
+                      </button>&nbsp;&nbsp;                                                 
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- End Table -->
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+</main><!-- End #main -->
