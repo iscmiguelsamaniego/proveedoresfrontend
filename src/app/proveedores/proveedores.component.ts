@@ -68,6 +68,7 @@ export class ProveedoresComponent implements OnInit {
   }
 
   public getRowId(id : any) {       
+    this.idProveedores = 
     this.idProveedores = id;
   }
 
@@ -113,8 +114,8 @@ export class ProveedoresComponent implements OnInit {
     }
   }
 
-  public updateProveedor() {
-        
+  public updateProveedor() {          
+    
     this.proveedoresService.updateProveedor(
       this.idProveedores,
       this.proveedoresForm.value.nombre,
