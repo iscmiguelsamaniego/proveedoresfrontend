@@ -6,4 +6,4 @@ Permine administrar los datos proporcionados desde un backend
 ## Caracteristicas
 
 Angular
-Librerias : Bootstrap
+Librerias : Bootstrap, ngx-pagination, GoogleFonts

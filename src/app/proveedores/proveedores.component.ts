@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProveedoresService } from '../services/proveedores.service';
 import { NgFor, NgIf } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
 import { SidebarComponent } from '../sidebar/sidebar.component';
+import { FilterGenericPipe } from '../pipes/filter-generic.pipe';
+import { SortByPipe } from '../pipes/sort-by-pipe.pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 
 @Component({
   selector: 'app-proveedores',
   standalone: true,
-  imports: [NgFor, NgIf, FormsModule, ReactiveFormsModule, SidebarComponent],
+  imports: [NgFor, NgIf, FormsModule, ReactiveFormsModule, SidebarComponent, FilterGenericPipe, SortByPipe, NgxPaginationModule],
   templateUrl: './proveedores.component.html',
   styleUrl: './proveedores.component.css'
 })
@@ -23,6 +26,9 @@ export class ProveedoresComponent implements OnInit {
   public saveBtn = false;
   public updateBtn = false;
   public cancelEditBtn = false;
+  public searchText: any = '';
+  public p: any;
+  public autoHide = false;
 
   constructor(
     private router: Router,
@@ -61,8 +67,7 @@ export class ProveedoresComponent implements OnInit {
 
   }
 
-  public getRowId(id: any) {   
-    this.idProveedores = "";
+  public getRowId(id : any) {       
     this.idProveedores = id;
   }
 
@@ -109,7 +114,7 @@ export class ProveedoresComponent implements OnInit {
   }
 
   public updateProveedor() {
-    
+        
     this.proveedoresService.updateProveedor(
       this.idProveedores,
       this.proveedoresForm.value.nombre,
