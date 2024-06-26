@@ -20,8 +20,10 @@ Para construir y ejecutar la aplicación necesitarás :
 - [NodeJs] (https://nodejs.org/en)
 - [Visual Studio Code] (https://code.visualstudio.com/)
 - [Angular CLI] (Previamente instalado NodeJS deberá ejecutar en linea de comandos)
+ <br/>
   npm install -g @angular/cli
 - [BootStrap] (Previamente instalado NodeJS deberá ejecutar en linea de comandos)
+  <br/>
   ng add @ng-bootstrap/ng-bootstrap
 
 Pasos para ejecutar el proyecto :
