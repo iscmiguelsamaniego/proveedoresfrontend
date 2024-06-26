@@ -10,7 +10,7 @@ Aplicación para efectos de evaluación realizada con [Angular](https://docs.ang
 <br><br>
 * Modulo proveedores : Permite las operaciones Crear, Consultar, Actualizar, Borrar, cuenta con una seccion lateral izquierda informativa del uso
 <br><br>
-<img src="https://github.com/iscmiguelsamaniego/proveedoresfrontend/blob/main/proveedores.PNG" width="900" height="450">
+<img src="https://github.com/iscmiguelsamaniego/proveedoresfrontend/blob/main/proveedores.PNG" width="900" height="350">
 
 ## Requerimientos
 
