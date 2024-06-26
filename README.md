@@ -5,11 +5,11 @@ Aplicación para efectos de evaluación realizada con [Angular](https://docs.ang
 ## Descripción del proyecto
 
 * Modulo principal : Da la bienvenida al usuario y muestra la información de la tabla Datos del Sistema
-<br><br>
+
 <img src="https://github.com/iscmiguelsamaniego/proveedoresfrontend/blob/main/principal.PNG" width="900" height="400">
-<br><br>
-* Modulo proveedores : Permite las operaciones Crear, Consultar, Actualizar, Borrar, cuenta con una seccion lateral izquierda informativa del uso
-<br><br>
+
+ * Modulo proveedores : Permite las operaciones Crear, Consultar, Actualizar, Borrar, cuenta con una seccion lateral izquierda informativa del uso
+
 <img src="https://github.com/iscmiguelsamaniego/proveedoresfrontend/blob/main/proveedores.PNG" width="900" height="400">
 
 ## Requerimientos
